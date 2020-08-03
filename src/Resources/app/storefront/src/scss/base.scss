@@ -1,0 +1,39 @@
+.offcanvas {
+
+  // custom offCanvas position 'modal'
+  &.is-modal {
+    // equals is-bottom for mobile
+    bottom: 0;
+    top: auto;
+    height: 90%;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    transform: translateY(100%);
+
+    @include media-breakpoint-up(sm) {
+      // centered modal on larger screens
+      top: 50%;
+      height: auto;
+      width: auto;
+      left: 50%;
+      right: auto;
+      border-radius: 8px;
+      transform: translate(-50%, 100%);
+      &.is-open {
+        bottom: auto;
+        transform: translate(-50%, -50%) !important;
+      }
+    }
+  }
+
+  // fix space below header
+  .offcanvas-cookie-header {
+    margin-bottom: 10px;
+  }
+
+  // highlight accept-all-button
+  .btn.js-offcanvas-cookie-submit-all {
+    background-color: $buy-btn-bg;
+    border-color: $buy-btn-bg;
+  }
+}

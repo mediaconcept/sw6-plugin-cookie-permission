@@ -1,0 +1,33 @@
+{
+  "name": "mcs/cookie-permission",
+  "description": "Show cookie configuration in a non-closable modal",
+  "version": "v1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Media Concept Schweiz AG",
+      "role": "Agency"
+    }
+  ],
+  "require": {
+    "shopware/core": "6.2.*"
+  },
+  "extra": {
+    "shopware-plugin-class": "Mcs\\CookiePermission\\McsCookiePermission",
+    "plugin-icon": "src/Resources/config/plugin.png",
+    "label": {
+      "de-DE": "Cookie-Konfiguration als Störer",
+      "en-GB": "Cookie configuration as disrupter"
+    },
+    "description": {
+      "de-DE": "Öffnet die Cookie Konfiguration beim ersten Besuch in einem Popup. Optional wird der Button \"Alle akzeptieren\" ergänzt.",
+      "en-GB": "Opens the cookie configuration in a popup on first visit. Optinally adds the button \"Accept all\"."
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Mcs\\CookiePermission\\": "src/"
+    }
+  }
+}
