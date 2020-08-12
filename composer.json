@@ -6,8 +6,7 @@
   "license": "proprietary",
   "authors": [
     {
-      "name": "Media Concept Schweiz AG",
-      "role": "Agency"
+      "name": "Media Concept Schweiz AG"
     }
   ],
   "require": {
@@ -17,12 +16,12 @@
     "shopware-plugin-class": "Mcs\\CookiePermission\\McsCookiePermission",
     "plugin-icon": "src/Resources/config/plugin.png",
     "label": {
-      "de-DE": "Cookie-Konfiguration als Störer",
-      "en-GB": "Cookie configuration as disrupter"
+      "de-DE": "Cookie Konfiguration Popup",
+      "en-GB": "Cookie configuration popup"
     },
     "description": {
       "de-DE": "Öffnet die Cookie Konfiguration beim ersten Besuch in einem Popup. Optional wird der Button \"Alle akzeptieren\" ergänzt.",
-      "en-GB": "Opens the cookie configuration in a popup on first visit. Optinally adds the button \"Accept all\"."
+      "en-GB": "Opens the cookie configuration in a popup on first visit. Optionally adds the button \"Accept all\"."
     }
   },
   "autoload": {
