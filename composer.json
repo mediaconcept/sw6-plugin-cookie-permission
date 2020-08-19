@@ -3,14 +3,14 @@
   "description": "Show cookie configuration in a non-closable modal",
   "version": "v1.0.0",
   "type": "shopware-platform-plugin",
-  "license": "proprietary",
+  "license": "MIT",
   "authors": [
     {
       "name": "Media Concept Schweiz AG"
     }
   ],
   "require": {
-    "shopware/core": "^6.2.3"
+    "shopware/core": "^6.2.2"
   },
   "extra": {
     "shopware-plugin-class": "Mcs\\CookiePermission\\McsCookiePermission",
@@ -22,6 +22,14 @@
     "description": {
       "de-DE": "Öffnet die Cookie Konfiguration beim ersten Besuch in einem Popup. Optional wird der Button \"Alle akzeptieren\" ergänzt.",
       "en-GB": "Opens the cookie configuration in a popup on first visit. Optionally adds the button \"Accept all\"."
+    },
+    "manufacturerLink": {
+      "de-DE": "https://mediaconceptschweiz.ch/de/",
+      "en-GB": "https://mediaconceptschweiz.ch/en/"
+    },
+    "supportLink": {
+      "de-DE": "https://mediaconceptschweiz.ch/de/media-concept-group/kontakt/",
+      "en-GB": "https://mediaconceptschweiz.ch/en/media-concept-group/contact/"
     }
   },
   "autoload": {
