@@ -29,6 +29,8 @@ export default class McsCookiePermissionPlugin extends Plugin {
     init() {
         super.init();
 
+        this._onCloseRegistered = false;
+
         // Open offCanvas cookie configuration dialog when preference is not set
         if (!this._isPreferenceSet()) {
             this.openOffCanvas();
@@ -92,6 +94,39 @@ export default class McsCookiePermissionPlugin extends Plugin {
     openOffCanvas(callback) {
         const url = window.router['frontend.cookie.offcanvas'];
         AjaxOffCanvas.open(url, false, this._onOffCanvasOpened.bind(this, callback), 'modal', false, undefined, true);
+
+        if (!this._onCloseRegistered) {
+            document.$emitter.subscribe('onCloseOffcanvas', this._onOffCanvasClose.bind(this));
+            this._onCloseRegistered = true;
+        }
+    }
+
+    /**
+     * Check if preference when our OffCanvas was closed
+     * @private
+     */
+    _onOffCanvasClose() {
+
+        if (!this._isPreferenceSet()) {
+
+            /**
+             * Cookie modal was closed, but preference is not set.
+             * This may happen when resizing browser window, as _onViewportHasChanged() will call OffCanvas.close()
+             * under certain conditions in
+             * platform/src/Storefront/Resources/app/storefront/src/plugin/header/account-menu.plugin.js
+             */
+
+            // re-open modal after 100 ms
+            window.setTimeout(this.openOffCanvas.bind(this), 100);
+
+        } else {
+
+            // all good, remove event listener
+            document.$emitter.unsubscribe('onCloseOffcanvas', this._onOffCanvasClose.bind(this));
+            this._onCloseRegistered = false;
+
+        }
+
     }
 
 }
