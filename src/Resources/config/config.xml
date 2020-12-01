@@ -11,6 +11,14 @@
             <label>Show Accept-All-Button</label>
             <label lang="de-DE">Button "Alle akzeptieren" anzeigen</label>
             <label lang="en-GB">Show button "accept all"</label>
+            <helpText lang="de-DE">Nur wirksam, falls die Einstellung "Stammdaten > Sicherheit und Datenschutz > 'Alle Cookies akzeptieren'-Button anzeigen" nicht aktiv ist.</helpText>
+            <helpText lang="en-GB">Only effective if the setting "Basic Information > Security and Privacy > Show 'Accept all cookies' is not active".</helpText>
+        </input-field>
+        <input-field type="bool">
+            <name>DisableDarkPattern</name>
+            <label>Save button with background colour</label>
+            <label lang="de-DE">Speichern Button mit Hintergrundfarbe</label>
+            <label lang="en-GB">Save button with background colour</label>
         </input-field>
     </card>
 </config>

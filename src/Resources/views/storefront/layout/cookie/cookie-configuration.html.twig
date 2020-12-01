@@ -3,14 +3,21 @@
 {# hide close button #}
 {% block utilities_offcanvas_close %}{% endblock %}
 
-{# insert accept-all-button #}
+{# modify buttons #}
 {% block layout_cookie_configuration_button %}
-    {% if shopware.config.McsCookiePermission.config.ShowAcceptAll %}
+    {% if shopware.config.core.basicInformation.acceptAllCookies %}
+        {% set hasButtonAcceptAll = true %}
+    {% elseif shopware.config.McsCookiePermission.config.ShowAcceptAll %}
+        {% set hasButtonAcceptAll = true %}
+        {# insert accept-all-button #}
         <button
                 type="submit"
                 class="btn btn-primary btn-block js-offcanvas-cookie-submit-all">
             {{ "mcs-cookie-permission.cookie.accept"|trans|sw_sanitize }}
         </button>
+    {% endif %}
+    {% if hasButtonAcceptAll and not shopware.config.McsCookiePermission.config.DisableDarkPattern %}
+        {# apply dark pattern (unobtrusive save button) #}
         <button
                 type="submit"
                 class="btn btn-link btn-block js-offcanvas-cookie-submit">
