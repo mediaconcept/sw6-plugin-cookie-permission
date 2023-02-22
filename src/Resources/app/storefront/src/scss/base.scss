@@ -1,7 +1,7 @@
 .offcanvas {
 
   // custom offCanvas position 'modal'
-  &.is-modal {
+  &.offcanvas-modal {
     // equals is-bottom for mobile
     bottom: 0;
     top: auto;
@@ -20,7 +20,7 @@
       right: auto;
       border-radius: 8px;
       transform: translate(-50%, 100%);
-      &.is-open {
+      &.show {
         bottom: auto;
         transform: translate(-50%, -50%) !important;
       }
