@@ -19,7 +19,8 @@ export default class McsCookiePermissionPlugin extends Plugin {
      */
     static options = {
         ...Plugin.options,
-        buttonAcceptSelector: '.js-offcanvas-cookie-submit-all'
+        buttonAcceptSelector: '.js-offcanvas-cookie-submit-all',
+        buttonDenySelector: '.js-offcanvas-cookie-deny',
     }
 
     /**
@@ -54,13 +55,17 @@ export default class McsCookiePermissionPlugin extends Plugin {
     _registerOffCanvasEvents() {
         super._registerOffCanvasEvents();
 
-        const { submitEvent, buttonAcceptSelector } = this.options;
+        const { submitEvent, buttonAcceptSelector, buttonDenySelector } = this.options;
         const offCanvas = this._getOffCanvas();
 
         if (offCanvas) {
-            const button = offCanvas.querySelector(buttonAcceptSelector);
-            if (button) {
-                button.addEventListener(submitEvent, this._handleAcceptAll.bind(this));
+            const buttonAcceptAll = offCanvas.querySelector(buttonAcceptSelector);
+            if (buttonAcceptAll) {
+                buttonAcceptAll.addEventListener(submitEvent, this._handleAcceptAll.bind(this));
+            }
+            const buttonDeny = offCanvas.querySelector(buttonDenySelector);
+            if (buttonDeny) {
+                buttonDeny.addEventListener(submitEvent, this._handleDeny.bind(this))
             }
         }
     }
@@ -84,6 +89,16 @@ export default class McsCookiePermissionPlugin extends Plugin {
         // save preference
         this._handleSubmit();
 
+    }
+
+    _handleDeny(event) {
+        event.preventDefault();
+
+        const { cookiePreference } = this.options;
+        this.closeOffCanvas();
+        CookieStorage.setItem(cookiePreference, '1', '30');
+
+        this.$emitter.publish('onClickDenyButton');
     }
 
     /**

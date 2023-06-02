@@ -5,25 +5,25 @@
 
 {# modify buttons #}
 {% block layout_cookie_configuration_button %}
-    {% if config('core.basicInformation.acceptAllCookies') %}
-        {% set hasButtonAcceptAll = true %}
-    {% elseif config('McsCookiePermission.config.ShowAcceptAll') %}
-        {% set hasButtonAcceptAll = true %}
-        {# insert accept-all-button #}
+    {% if config('McsCookiePermission.config.ShowAcceptAll') and not config('core.basicInformation.acceptAllCookies') %}
         <button
-                type="submit"
-                class="btn btn-primary btn-block js-offcanvas-cookie-submit-all">
+            type="submit"
+            class="btn btn-primary btn-block js-offcanvas-cookie-submit-all"
+        >
             {{ "mcs-cookie-permission.cookie.accept"|trans|sw_sanitize }}
         </button>
     {% endif %}
-    {% if hasButtonAcceptAll and not config('McsCookiePermission.config.DisableDarkPattern') %}
-        {# apply dark pattern (unobtrusive save button) #}
+    <button
+        type="submit"
+        class="btn {{ config('McsCookiePermission.config.SaveButtonDisplay') }} btn-block js-offcanvas-cookie-submit"
+    >
+        {{ "cookie.save"|trans|sw_sanitize }}
+    </button>
+    {% if config('McsCookiePermission.config.DenyButtonDisplay') != 'none' %}
         <button
-                type="submit"
-                class="btn btn-link btn-block js-offcanvas-cookie-submit">
-            {{ "cookie.save"|trans|sw_sanitize }}
+            type="submit"
+            class="btn {{ config('McsCookiePermission.config.DenyButtonDisplay') }} btn-block js-offcanvas-cookie-deny">
+            {{ "cookie.deny"|trans|sw_sanitize }}
         </button>
-    {% else %}
-        {{ parent() }}
     {% endif %}
 {% endblock %}

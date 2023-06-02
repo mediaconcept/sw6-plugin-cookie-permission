@@ -5,20 +5,73 @@
     <card>
         <title>Cookie Dialog Configuration</title>
         <title lang="de-DE">Einstellungen Cookie Dialog</title>
-        <title lang="en-GB">Cookie Dialog Configuration</title>
         <input-field type="bool">
             <name>ShowAcceptAll</name>
-            <label>Show Accept-All-Button</label>
+            <label>Show button "accept all"</label>
             <label lang="de-DE">Button "Alle akzeptieren" anzeigen</label>
-            <label lang="en-GB">Show button "accept all"</label>
+            <helpText>Only effective if the setting "Basic Information > Security and Privacy > Show 'Accept all cookies' is not active".</helpText>
             <helpText lang="de-DE">Nur wirksam, falls die Einstellung "Stammdaten > Sicherheit und Datenschutz > 'Alle Cookies akzeptieren'-Button anzeigen" nicht aktiv ist.</helpText>
-            <helpText lang="en-GB">Only effective if the setting "Basic Information > Security and Privacy > Show 'Accept all cookies' is not active".</helpText>
         </input-field>
-        <input-field type="bool">
-            <name>DisableDarkPattern</name>
-            <label>Save button with background colour</label>
-            <label lang="de-DE">Speichern Button mit Hintergrundfarbe</label>
-            <label lang="en-GB">Save button with background colour</label>
+        <input-field type="single-select">
+            <name>SaveButtonDisplay</name>
+            <label>Display of button "save"</label>
+            <label lang="de-DE">Darstellung Button "Speichern"</label>
+            <defaultValue>btn-primary</defaultValue>
+            <options>
+                <option>
+                    <id>btn-primary</id>
+                    <name>Button with primary color</name>
+                    <name lang="de-DE">Button in Primärfarbe</name>
+                </option>
+                <option>
+                    <id>btn-secondary</id>
+                    <name>Button with secondary color</name>
+                    <name lang="de-DE">Button in Sekundärfarbe</name>
+                </option>
+                <option>
+                    <id>btn-light</id>
+                    <name>Button with light color</name>
+                    <name lang="de-DE">Button in heller Farbe</name>
+                </option>
+                <option>
+                    <id>btn-link</id>
+                    <name>As link</name>
+                    <name lang="de-DE">Als Link</name>
+                </option>
+            </options>
+        </input-field>
+        <input-field type="single-select">
+            <name>DenyButtonDisplay</name>
+            <label>Display of button "deny"</label>
+            <label lang="de-DE">Darstellung Button "Ablehnen"</label>
+            <defaultValue>none</defaultValue>
+            <options>
+                <option>
+                    <id>none</id>
+                    <name>do not show</name>
+                    <name lang="de-DE">nicht anzeigen</name>
+                </option>
+                <option>
+                    <id>btn-primary</id>
+                    <name>Button with primary color</name>
+                    <name lang="de-DE">Button in Primärfarbe</name>
+                </option>
+                <option>
+                    <id>btn-secondary</id>
+                    <name>Button with secondary color</name>
+                    <name lang="de-DE">Button in Sekundärfarbe</name>
+                </option>
+                <option>
+                    <id>btn-light</id>
+                    <name>Button with light color</name>
+                    <name lang="de-DE">Button in heller Farbe</name>
+                </option>
+                <option>
+                    <id>btn-link</id>
+                    <name>As link</name>
+                    <name lang="de-DE">Als Link</name>
+                </option>
+            </options>
         </input-field>
     </card>
 </config>
