@@ -36,6 +36,10 @@ export default class McsCookiePermissionPlugin extends Plugin {
         if (!this._isPreferenceSet()) {
             this.openOffCanvas();
         }
+
+        window.showCookieConfigurationDialog = () => {
+            this.openOffCanvas();
+        }
     }
 
     /**

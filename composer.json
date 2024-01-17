@@ -1,7 +1,7 @@
 {
   "name": "mcs/cookie-permission",
   "description": "Show cookie configuration in a non-closable modal",
-  "version": "v2.0.1",
+  "version": "v2.1.0",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "authors": [
