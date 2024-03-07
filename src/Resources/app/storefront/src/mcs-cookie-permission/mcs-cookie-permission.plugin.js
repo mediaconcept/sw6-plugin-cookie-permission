@@ -98,9 +98,16 @@ export default class McsCookiePermissionPlugin extends Plugin {
     _handleDeny(event) {
         event.preventDefault();
 
-        const { cookiePreference } = this.options;
-        this.closeOffCanvas();
-        CookieStorage.setItem(cookiePreference, '1', '30');
+        const { cookieSelector } = this.options;
+        const offCanvas = this._getOffCanvas();
+
+        // get all cookie checkboxes
+        Array.from(offCanvas.querySelectorAll(cookieSelector)).forEach(checkbox => {
+            checkbox.checked = checkbox.dataset.cookieRequired;
+        });
+
+        // save preference
+        this._handleSubmit();
 
         this.$emitter.publish('onClickDenyButton');
     }
