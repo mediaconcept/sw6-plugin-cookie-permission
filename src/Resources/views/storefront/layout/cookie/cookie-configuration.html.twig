@@ -1,7 +1,11 @@
 {% sw_extends '@Storefront/storefront/layout/cookie/cookie-configuration.html.twig' %}
 
 {# hide close button #}
-{% block utilities_offcanvas_close %}{% endblock %}
+{% block utilities_offcanvas_close %}
+    <h5 class="visually-hidden" id="cookie-headline">
+        {{ 'cookie.headline'|trans|sw_sanitize }}
+    </h5>
+{% endblock %}
 
 {# modify buttons #}
 {% block layout_cookie_configuration_button %}
