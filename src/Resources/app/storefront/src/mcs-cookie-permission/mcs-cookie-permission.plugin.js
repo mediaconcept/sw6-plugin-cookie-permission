@@ -131,6 +131,9 @@ export default class McsCookiePermissionPlugin extends Plugin {
             if (!offCanvas.hasAttribute('aria-label') && !offCanvas.hasAttribute('aria-labelledby')) {
                 offCanvas.setAttribute('aria-labelledby', 'cookie-headline');
             }
+            if (!offCanvas.hasAttribute('aria-description') && !offCanvas.hasAttribute('aria-describedby')) {
+                offCanvas.setAttribute('aria-describedby', 'cookie-config-description');
+            }
             this._ariaLabelAdded = true;
         }
     }
