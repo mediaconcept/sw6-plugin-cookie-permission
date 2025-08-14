@@ -5,7 +5,9 @@
     <h5 class="visually-hidden" id="cookie-config-title">
         {{ 'cookie.headline'|trans|sw_sanitize }}
     </h5>
-    <p class="visually-hidden" id="cookie-config-description">{{ 'cookie.messageTextPage'|trans|sw_sanitize }}</p>
+    <p class="visually-hidden" id="cookie-config-description">{{ 'cookie.messageTextPage'|trans({
+        '%url%': path('frontend.cms.page.full', { id: config('core.basicInformation.privacyPage') })
+    })|raw }}</p>
 {% endblock %}
 
 {# modify buttons #}
