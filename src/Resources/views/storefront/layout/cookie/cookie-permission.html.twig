@@ -1,4 +1,7 @@
 {# remove default cookie permission banner and load js plugin (will open dialog on init when preference is not set) #}
 {% block layout_cookie_permission_inner %}
+    {% if feature('ACCESSIBILITY_TWEAKS') %}
+        <script>window.mcsCookiePermissionPrivacyPage = '{{ path('frontend.cms.page.full', { id: config('core.basicInformation.privacyPage') } ) }}'</script>
+    {% endif %}
     <template data-cookie-permission="true"></template>
 {% endblock %}

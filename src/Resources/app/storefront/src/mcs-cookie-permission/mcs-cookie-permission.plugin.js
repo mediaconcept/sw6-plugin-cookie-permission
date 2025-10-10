@@ -33,7 +33,7 @@ export default class McsCookiePermissionPlugin extends Plugin {
         this._onCloseRegistered = false;
 
         // Open offCanvas cookie configuration dialog when preference is not set
-        if (!this._isPreferenceSet()) {
+        if (!this._isPreferenceSet() && window.mcsCookiePermissionPrivacyPage !== window.location.pathname) {
             this.openOffCanvas();
         }
 
