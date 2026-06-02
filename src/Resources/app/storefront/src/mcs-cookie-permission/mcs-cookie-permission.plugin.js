@@ -40,6 +40,12 @@ export default class McsCookiePermissionPlugin extends Plugin {
         window.showCookieConfigurationDialog = () => {
             this.openOffCanvas();
         }
+
+        document.addEventListener('showCookieBar', this._handleShowCookieBarEvent.bind(this));
+    }
+
+    _handleShowCookieBarEvent() {
+        this.openOffCanvas();
     }
 
     /**
