@@ -24,7 +24,7 @@
         type="submit"
         class="btn {{ config('McsCookiePermission.config.SaveButtonDisplay') }} btn-block js-offcanvas-cookie-submit"
     >
-        {{ "cookie.save"|trans|sw_sanitize }}
+        {{ "global.default.save"|trans|sw_sanitize }}
     </button>
     {% if config('McsCookiePermission.config.DenyButtonDisplay') != 'none' %}
         <button
